@@ -15,7 +15,7 @@ const Footer = () => {
             <div>
                 <h6 className='font-bold pt-2 text-red-600'>Useful Links</h6>
                 <ul>
-                    <li className='py-1'><a href=''>FAQ</a></li>
+                    <li className='py-1'><a href='/'>FAQ</a></li>
                     <li className='py-1'><a href='https://ir.netflix.net/ir-overview/profile/default.aspx'>Investor Relations</a></li>
                     <li className='py-1'><a href='https://help.netflix.com/legal/privacy'>Privacy</a></li>
                     <li className='py-1'><a href='https://fast.com/'>Speed Test</a></li>
