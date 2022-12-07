@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import NotFound from "./components/NotFound";
+import Account from "./components/Account";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/signup" element={<Signup/>}></Route>
       <Route path="/movie/:id" element={<IndividualMovie/>}></Route>
       <Route path="*" element={<NotFound/>}></Route>
+      <Route path="/account" element={<Account/>}></Route>
       </Routes>
       <Footer/>
     </div>
