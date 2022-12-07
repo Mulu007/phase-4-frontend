@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const Main = () => {
     const [movies, setMovies] = useState([])
@@ -40,10 +41,12 @@ const Main = () => {
             <div className='absolute w-full top-[20%] p-4 md:p-8'>
                 <h1 className='text-3xl md:text-5xl font-bold'>{movie?.name}</h1>
             <div className='my-4'>
+              <Link to = "/movie/:id">
                 <button className='border bg-gray-300 text-black border-gray-300 py-2 px-5'>Play</button>
+              </Link>
                 <button className='border text-white border-gray-300 py-2 px-5 ml-4'>Watch Later</button>
             </div>
-            <p className='text-gray-400 text-sm'>Released: 2022</p>
+            <p className='text-gray-400 text-sm'>Released: 02-12-2023</p>
             <p className='w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] text-gray-200'>{truncateString(movie?.description, 150)}</p>
             </div>
         </div>
