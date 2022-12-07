@@ -34,7 +34,7 @@ const Main = () => {
     <div className='w-full h-[550px] text-white'>
 
         <div className='w-full h-full'>
-            <div className='absolute w-full h-[600px] bg-gradient-to-r from-black'></div>
+            <div className='absolute w-full h-[550px] bg-gradient-to-r from-black'></div>
             <img className='w-full h-full object-cover' src={movie?.movie_url} alt={movie?.name}/>
 
             <div className='absolute w-full top-[20%] p-4 md:p-8'>
