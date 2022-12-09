@@ -8,22 +8,77 @@ import Signup from "./components/Signup";
 import NotFound from "./components/NotFound";
 import Account from "./components/Account";
 
+import Logout from "./components/Logout";
+import {useEffect, useState} from "react"
+
 function App() {
+
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/me").then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          setCurrentUser(user);
+          setIsAuthenticated(true);
+        });
+      }
+    });
+  }, []);
+
+
   return (
-    <div>
-      <Navbar/>
-      <Routes>
-      <Route path="/" element={<Home/>}></Route>
-      <Route path="/login" element={<Login/>}></Route>
-      <Route path="/signup" element={<Signup/>}></Route>
-      <Route path="/movie/:id" element={<IndividualMovie/>}></Route>
-      <Route path="*" element={<NotFound/>}></Route>
-      <Route path="/account" element={<Account/>}></Route>
-      </Routes>
-      <Footer/>
-    </div>
-  );
+  <div>
+    <Navbar isAuthenticated={isAuthenticated}/>
+    <Routes>
+    
+    {!currentUser? <>
+      <Route path="/login" element={<Login setCurrentUser={setCurrentUser}/>}></Route>
+    
+    
+    </> :
+    <>
+    <Route path="/" element={<Home/>}></Route>
+    <Route path="/movie/:id" element={<IndividualMovie/>}></Route>
+    <Route path="*" element={<NotFound/>}></Route>
+    <Route path="/account" element={<Account/>}></Route>
+    <Route path="/logout" element={<Logout setCurrentUser={setCurrentUser} currentUser={currentUser}/>}></Route>
+    </>
+
+    }
+    <Route path="*" element={<Signup setCurrentUser = {setCurrentUser}/>}></Route>
+    </Routes>
+    <Footer/>
+  </div>
+);
+
+
 }
 
 
 export default App;
+
+
+
+
+// return (
+//   <div>
+//     <Navbar isAuthenticated={isAuthenticated}/>
+//     <Routes>
+    
+//       { isAuthenticated?
+//       <>
+//       <Route path="/" element={<Home/>}></Route>
+//       <Route path="/logout" element={<Logout setCurrentUser={setCurrentUser} currentUser={currentUser}/>}></Route>
+//       </> :
+//       <>
+//       <Route path="/signup" element={<Signup setCurrentUser = {setCurrentUser}/>}></Route>
+//       <Route path="/login" element={<Login setCurrentUser={setCurrentUser}/>}></Route>
+//       </>
+//     }
+//     {/* <Route path="*" element={<NotFound/>}></Route> */}
+//     </Routes>
+//     <Footer/>
+//   </div>
+// )
