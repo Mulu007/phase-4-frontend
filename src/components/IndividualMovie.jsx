@@ -26,7 +26,7 @@ const IndividualMovie = () => {
                     <div className=' py-[120px]'>
                         <ReactPlayer width="full" height="640px" controls url={movie?.video_url}/>
                     </div>
-                <div className='container  px-3 mx-auto 2xl:px-32 xl:grid grid-cols-3 flex-col py-10 lg:py-20 gap-8'>
+                <div className='container px-3 mx-auto 2xl:px-32 xl:grid grid-cols-3 flex-col py-10 lg:py-20 gap-8'>
                     <div className='xl:col-span-1 w-full xl:order-none order-last h-header bg-gray-header border-gray-800 rounded-lg overflow-hidden'>
                         <img className="w-full h-full object-cover" src={movie?.movie_url} alt={movie?.name}/>
                     </div>
@@ -35,7 +35,7 @@ const IndividualMovie = () => {
                             {/* title */}
                             <h1 className='xl:text-4xl capitalize font-sans text-2xl font-bols'>{movie?.name}</h1>
                             {/* flex items */}
-                            <div className='flex items-centergap-4 font-medium text-gray-200'>
+                            <div className='flex items-center gap-4 font-medium text-gray-200'>
                                 <div className='flex-col bg-red-600 text-sm px-2 py-1'>
                                     HD 4K
                                 </div>

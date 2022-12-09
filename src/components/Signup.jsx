@@ -18,6 +18,7 @@ const Signup = () => {
 
     }
 
+    
   return (
     <div>
         <div className='w-full h-screen'>
