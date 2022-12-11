@@ -21,6 +21,16 @@ const Main = () => {
     }
     // console.log(movie)
 
+    function handleDelete(id) {
+      fetch(`http://localhost:3000/movies/${id}`, {
+        method: "DELETE",
+      })
+      .then((response) => response.json())
+      .then(() => {
+        getMovies();
+      })
+    }
+
     const truncateString = (str, num) => {
         if (str?.length > num) {
           return str.slice(0, num) + '...';
@@ -45,6 +55,8 @@ const Main = () => {
                 <button className='border bg-gray-300 text-black border-gray-300 py-2 px-5'>Play</button>
               </Link>
                 <button className='border text-white border-gray-300 py-2 px-5 ml-4'>Watch Later</button>
+                <button className='border text-white border-gray-300 py-2 px-5 ml-4'>Edit Movie</button>
+                <button className='border text-white border-gray-300 py-2 px-5 ml-4' onClick={() => handleDelete(movie?.id)}>Delete Movie</button>
             </div>
             <p className='text-gray-400 text-sm'>Released: 02-12-2023</p>
             <p className='w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] text-gray-200'>{truncateString(movie?.description, 150)}</p>

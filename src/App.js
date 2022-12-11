@@ -1,4 +1,4 @@
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import IndividualMovie from "./components/IndividualMovie";
@@ -10,6 +10,7 @@ import Account from "./components/Account";
 
 import Logout from "./components/Logout";
 import {useEffect, useState} from "react"
+import AddMovie from "./components/AddMovie";
 
 function App() {
 
@@ -27,6 +28,13 @@ function App() {
     });
   }, []);
 
+  const [allMovies, setAllMovies] = useState([])
+  useEffect(() => {
+    fetch(" http://localhost:3000/movies")
+      .then((resp) => resp.json())
+      .then((show) => setAllMovies(show));
+  }, []);
+
 
   return (
   <div>
@@ -35,6 +43,7 @@ function App() {
     
     {!currentUser? <>
       <Route path="/login" element={<Login setCurrentUser={setCurrentUser}/>}></Route>
+      <Route path="/addmovie" element={<AddMovie allMovies={allMovies} setAllMovies={setAllMovies}/>}></Route>
     
     
     </> :
@@ -49,7 +58,7 @@ function App() {
     }
     <Route path="*" element={<Signup setCurrentUser = {setCurrentUser}/>}></Route>
     </Routes>
-    <Footer/>
+    {/* <Footer/> */}
   </div>
 );
 
