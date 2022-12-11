@@ -1,70 +1,73 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ALLMOVIES
+React & Ruby Project - Phase 4 Collaborative Project
 
-## Available Scripts
+# Back-End Repository
+[CLICK HERE 🔗](https://github.com/Beulah-Matt/RailsProject)
 
-In the project directory, you can run:
+# Team
+* Beulah Mathenge 
+* Silvanius Mulu
+* Geoffrey Matieso
+* Maurene Chepkemoi
 
-### `npm start`
+# Team norms
+* Standups (9:15am, 2:15pm, 5:00pm)
+* Ask for help
+* Course correct priorities (learning vs completion)
+* Whatsapp calls and Slack
+* Pull requests require a second pair of eyes
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Description and Purpose
+App for crowd sourcing movies for binge-watchers and movie lovers. Our members control what they want to watch, when they want it, with no ads, in one simple subscription.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# User Stories
+* As a user I can view a movie
+* As a user I can edit a movie description
+* As a user I can delete a movie
+* As a user I can login and signup into the website
 
-### `npm test`
+## Technologies Used
+* JSX
+* Tailwind
+* React
+* Ruby
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Website Peek
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Home Page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Website Screenshot](https://github.com/Mulu007/phase-4-frontend/blob/main/src/assets/website%20screenshots/Home.png?raw=true)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Website Screenshot](https://github.com/Mulu007/phase-4-frontend/blob/main/src/assets/website%20screenshots/Main.png?raw=true)
+### Individual Movie Page
 
-### `npm run eject`
+![Website Screenshot](https://github.com/Mulu007/phase-4-frontend/blob/main/src/assets/website%20screenshots/IndividualMovie.png?raw=true)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Movie Description Page
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Website Screenshot](https://github.com/Mulu007/phase-4-frontend/blob/main/src/assets/website%20screenshots/MovieDescription.png?raw=true)
+### Not Found (404) Page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![Website Screenshot](https://github.com/Mulu007/phase-4-frontend/blob/main/src/assets/website%20screenshots/NotFound.png?raw=true)
+### Sign In Page
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Website Screenshot](https://github.com/Mulu007/phase-4-frontend/blob/main/src/assets/website%20screenshots/SignIn.png?raw=true)
 
-## Learn More
+### Sign Up Page
+![Website Screenshot](https://github.com/Mulu007/phase-4-frontend/blob/main/src/assets/website%20screenshots/SignUp.png?raw=true)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## LIVE SITE
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+http://phase-4-frontend.vercel.app/
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Copyright (c)2022 Silvanius.B.Mulu & Beulah Mathenge
 
-### Analyzing the Bundle Size
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
