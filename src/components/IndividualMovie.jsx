@@ -8,13 +8,18 @@ const IndividualMovie = () => {
     useEffect(() => {
         getMovies()
       },[])
-      console.log(movies)
+      //console.log(movies)
     
     function getMovies() {
-    fetch("http://localhost:3000/movies")
+    fetch("http://localhost:3000/movies",{
+        headers: {
+            Authorization:  `Bearer ${localStorage.token}`,
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        }
+    })
     .then((response) => response.json())
-    .then((data) =>
-        setMovies(data)
+    .then((data) => setMovies(data)
     );
     }
     
