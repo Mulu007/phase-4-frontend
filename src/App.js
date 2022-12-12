@@ -1,4 +1,4 @@
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import IndividualMovie from "./components/IndividualMovie";
@@ -53,12 +53,14 @@ function App() {
     <Route path="*" element={<NotFound/>}></Route>
     <Route path="/account" element={<Account/>}></Route>
     <Route path="/logout" element={<Logout setCurrentUser={setCurrentUser} currentUser={currentUser}/>}></Route>
+    <Route path="/addmovie" element={<AddMovie/>}></Route>
+
     </>
 
     }
     <Route path="*" element={<Signup setCurrentUser = {setCurrentUser}/>}></Route>
     </Routes>
-    {/* <Footer/> */}
+    <Footer/>
   </div>
 );
 

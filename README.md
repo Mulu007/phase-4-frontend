@@ -3,7 +3,7 @@
 React & Ruby Project - Phase 4 Collaborative Project
 
 # Back-End Repository
-[CLICK HERE 🔗](https://github.com/Beulah-Matt/RailsProject)
+[CLICK HERE 🔗](https://github.com/Beulah-Matt/phase-4-rails-project)
 
 # Team
 * Beulah Mathenge 
