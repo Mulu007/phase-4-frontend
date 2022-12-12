@@ -4,7 +4,7 @@ import { Link} from 'react-router-dom'
 const Logout = ({setCurrentUser, currentUser}) => {
   //let navigate = useNavigate()
   const handleLogout = () => {
-    fetch('/logout', {method: "DELETE"})
+    fetch('http://localhost:3000/logout', {method: "DELETE"})
     .then(res => {
           if (res.ok) {
             setCurrentUser(null)

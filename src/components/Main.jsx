@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import EditPage from './EditPage';
 
 const Main = () => {
     const [movies, setMovies] = useState([])
@@ -20,6 +21,34 @@ const Main = () => {
     );
     }
     // console.log(movie)
+
+    function handleDelete(id) {
+      fetch(`http://localhost:3000/movies/${id}`, {
+        method: "DELETE",
+      })
+      .then((response) => response.json())
+      .then(() => {
+        getMovies();
+      })
+    }
+
+    const handleMovieChange = (id, correctIndex) => {
+      fetch(`http://localhost:4000/movies/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ correctIndex }),
+      })
+        .then((r) => r.json())
+        .then((updatedMovie) => {
+          const updatedMovies = movies.map((movie) => {
+            if (movie.id === updatedMovie.id) return updatedMovie;
+            return movie;
+          });
+          setMovies(updatedMovies);
+        });
+    }
 
     const truncateString = (str, num) => {
         if (str?.length > num) {
@@ -45,6 +74,9 @@ const Main = () => {
                 <button className='border bg-gray-300 text-black border-gray-300 py-2 px-5'>Play</button>
               </Link>
                 <button className='border text-white border-gray-300 py-2 px-5 ml-4'>Watch Later</button>
+                <button className='border text-white border-gray-300 py-2 px-5 ml-4'>Edit Movie</button>
+                <EditPage handleMovieChange={handleMovieChange} key={movie?.id}/>
+                <button className='border text-white border-gray-300 py-2 px-5 ml-4' onClick={() => handleDelete(movie?.id)}>Delete Movie</button>
             </div>
             <p className='text-gray-400 text-sm'>Released: 02-12-2023</p>
             <p className='w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] text-gray-200'>{truncateString(movie?.description, 150)}</p>

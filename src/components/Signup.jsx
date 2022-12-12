@@ -46,6 +46,7 @@ const Signup = ({setCurrentUser}) => {
 
     }
 
+    
   return (
     <div>
         <div className='w-full h-screen'>

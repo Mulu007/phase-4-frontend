@@ -1,4 +1,4 @@
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import IndividualMovie from "./components/IndividualMovie";
@@ -12,16 +12,17 @@ import Crud from "./components/Crud";
 import Logout from "./components/Logout";
 import {useEffect, useState} from "react"
 import AddMovie from "./components/AddMovie";
+
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "./features/loginSlice";
 //import axios from "axios";
-//import {selectUser} from "./features/loginSlice"
+import {selectUser} from "./features/loginSlice"
 
 function App() {
 
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     //const [currentUser, setCurrentUser] = useState(null);
-   // const user = useSelector(selectUser)
+    const user = useSelector(selectUser)
     const currentUser = useSelector((state) => state.user.user)
     
     const dispatch = useDispatch()
@@ -64,7 +65,7 @@ function App() {
       <Routes>
       
       {!isAuthenticated? <>
-        <Route path="/crud" element={<Crud />}></Route> 
+        {*<Route path="/crud" element={<Crud />}></Route> *}
         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />}></Route>
         <Route path="/addMovie" element={<AddMovie allMovies={allMovies} setAllMovies={setAllMovies}/>}></Route>
       
@@ -85,8 +86,6 @@ function App() {
     </div>
   );
   
-  
   }
-
 
 export default App;
