@@ -12,102 +12,81 @@ import Crud from "./components/Crud";
 import Logout from "./components/Logout";
 import {useEffect, useState} from "react"
 import AddMovie from "./components/AddMovie";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "./features/loginSlice";
+//import axios from "axios";
+//import {selectUser} from "./features/loginSlice"
 
 function App() {
 
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  //const [currentUser, setCurrentUser] = useState(null);
-  //const [isLoggedIn, setIsLoggedIn]=useState(false)
-
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/me",{
-  //     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-  // }).then((res) => {
-  //     if (res.ok) {
-  //       res.json().then((user) => {
-  //         localStorage.token = user.jwt
-  //        // setCurrentUser(user);
-  //         setIsAuthenticated(true);
-  //       });
-  //     }
-  //   });
-  // }, []);
-
-  const [allMovies, setAllMovies] = useState([])
-  useEffect(() => {
-    fetch(" http://localhost:3000/movies")
-      .then((resp) => resp.json())
-      .then((show) => setAllMovies(show));
-  }, []);
-
-
-  const handleDelete = (id) => {
-    fetch(`http://localhost:4000/movies/${id}`, {
-        method: "DELETE",
-      })
-      .then((resp)=> resp.json())
-      .then(()=>{
-        const updatedMovies = allMovies.filter((movie) => movie.id !== id);
-        setAllMovies(updatedMovies)
-      })
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    //const [currentUser, setCurrentUser] = useState(null);
+   // const user = useSelector(selectUser)
+    const currentUser = useSelector((state) => state.user.user)
+    
+    const dispatch = useDispatch()
+  
+  
+    useEffect(() => {
+      // auto-login
+      fetch("http://localhost:3000/me").then((r) => {
+        if (r.ok) {
+          r.json().then((user) => dispatch(login(user.user)))
+        }
+      });
+    }, []);
+  
+    const [allMovies, setAllMovies] = useState([])
+    useEffect(() => {
+      fetch(" http://localhost:3000/movies")
+        .then((resp) => resp.json())
+        .then((show) => setAllMovies(show));
+    }, []);
+  
+  
+    const handleDelete = (id) => {
+      fetch(`http://localhost:4000/movies/${id}`, {
+          method: "DELETE",
+        })
+        .then((resp)=> resp.json())
+        .then(()=>{
+          const updatedMovies = allMovies.filter((movie) => movie.id !== id);
+          setAllMovies(updatedMovies)
+        })
+    }
+  
+  
+  
+  
+    return (
+    <div>
+      <Navbar isAuthenticated={isAuthenticated}/>
+      <Routes>
+      
+      {!isAuthenticated? <>
+        <Route path="/crud" element={<Crud />}></Route> 
+        <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />}></Route>
+        <Route path="/addMovie" element={<AddMovie allMovies={allMovies} setAllMovies={setAllMovies}/>}></Route>
+      
+      </> :
+      <>
+      <Route path="/" element={<Home/>}></Route>
+      <Route path="/movie/:id" element={<IndividualMovie handleDelete={handleDelete}/>}></Route>
+      <Route path="*" element={<NotFound/>}></Route>
+      <Route path="/account" element={<Account/>}></Route>
+      <Route path="/logout" element={<Logout currentUser={currentUser}/>}></Route>
+      
+      </>
+  
+      }
+      <Route path="*" element={<Signup setIsAuthenticated={setIsAuthenticated}/>}></Route>
+      </Routes>
+      <Footer/>
+    </div>
+  );
+  
+  
   }
 
 
-
-
-  return (
-  <div>
-    <Navbar isAuthenticated={isAuthenticated}/>
-    <Routes>
-    
-    {!isAuthenticated? <>
-      <Route path="/crud" element={<Crud />}></Route> 
-      <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated}/>}></Route>
-      <Route path="/addMovie" element={<AddMovie allMovies={allMovies} setAllMovies={setAllMovies}/>}></Route>
-    
-    </> :
-    <>
-    <Route path="/" element={<Home/>}></Route>
-    <Route path="/movie/:id" element={<IndividualMovie handleDelete={handleDelete}/>}></Route>
-    <Route path="*" element={<NotFound/>}></Route>
-    <Route path="/account" element={<Account/>}></Route>
-    <Route path="/logout" element={<Logout />}></Route>
-    
-    </>
-
-    }
-    <Route path="*" element={<Signup />}></Route>
-    </Routes>
-    <Footer/>
-  </div>
-);
-
-
-}
-
-
 export default App;
-
-
-
-
-// return (
-//   <div>
-//     <Navbar isAuthenticated={isAuthenticated}/>
-//     <Routes>
-    
-//       { isAuthenticated?
-//       <>
-//       <Route path="/" element={<Home/>}></Route>
-//       <Route path="/logout" element={<Logout setCurrentUser={setCurrentUser} currentUser={currentUser}/>}></Route>
-//       </> :
-//       <>
-//       <Route path="/signup" element={<Signup setCurrentUser = {setCurrentUser}/>}></Route>
-//       <Route path="/login" element={<Login setCurrentUser={setCurrentUser}/>}></Route>
-//       </>
-//     }
-//     {/* <Route path="*" element={<NotFound/>}></Route> */}
-//     </Routes>
-//     <Footer/>
-//   </div>
-// )
