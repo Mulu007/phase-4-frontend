@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-const Login = ({setCurrentUser} ) => {
+const Login = ({setIsAuthenticated} ) => {
   const [formData, setFormData] = useState({
     username: "",
     email:"",
@@ -21,12 +21,15 @@ const Login = ({setCurrentUser} ) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Accept: "application/json",
       },
       body: JSON.stringify(formData),
     }).then((res) => {
       if (res.ok) {
         res.json().then((user) => {
-          setCurrentUser(user);
+            // localStorage.getItem("token", user.jwt)
+            setIsAuthenticated(true)
+          //console.log("ok");
           navigate("/")
         });
       } else {
