@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import EditPage from './EditPage';
+// import EditPage from './EditPage';
 
 const Main = () => {
     const [movies, setMovies] = useState([])
@@ -74,14 +74,14 @@ const Main = () => {
                 <button className='border bg-gray-300 text-black border-gray-300 py-2 px-5'>Play</button>
               </Link>
                 {/* <button className='border text-white border-gray-300 py-2 px-5 ml-4'>Watch Later</button> */}
-              <Link to ="/editpage">
+              {/* <Link to ="/editpage"> */}
                 <button className='border text-white border-gray-300 py-2 px-5 ml-4'>Edit Movie</button>
-              </Link>
+              {/* </Link> */}
                 <Link to = "/addmovie">
                 <button className='border text-white border-gray-300 py-2 px-5 ml-4'>Add Movie</button>
                 </Link>
                 <button className='border text-white border-gray-300 py-2 px-5 ml-4' onClick={() => handleDelete(movie?.id)}>Delete Movie</button>
-                <EditPage id={movie?.id}/>
+                {/* <EditPage id={movie?.id}/> */}
             </div>
             <p className='text-gray-400 text-sm'>Released: 02-12-2023</p>
             <p className='w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] text-gray-200'>{truncateString(movie?.description, 150)}</p>

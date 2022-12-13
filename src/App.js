@@ -11,7 +11,7 @@ import Account from "./components/Account";
 import Logout from "./components/Logout";
 import {useEffect, useState} from "react"
 import AddMovie from "./components/AddMovie";
-import EditPage from "./components/EditPage";
+// import EditPage from "./components/EditPage";
 
 function App() {
 
@@ -55,7 +55,7 @@ function App() {
     <Route path="/account" element={<Account/>}></Route>
     <Route path="/logout" element={<Logout setCurrentUser={setCurrentUser} currentUser={currentUser}/>}></Route>
     <Route path="/addmovie" element={<AddMovie/>}></Route>
-    <Route path="/editpage" element={<EditPage/>}></Route>
+    {/* <Route path="/editpage" element={<EditPage/>}></Route> */}
     </>
 
     }
