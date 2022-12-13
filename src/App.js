@@ -7,7 +7,6 @@ import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import NotFound from "./components/NotFound";
 import Account from "./components/Account";
-
 import Logout from "./components/Logout";
 import {useEffect, useState} from "react"
 import AddMovie from "./components/AddMovie";
@@ -56,6 +55,7 @@ function App() {
     <Route path="/logout" element={<Logout setCurrentUser={setCurrentUser} currentUser={currentUser}/>}></Route>
     <Route path="/addmovie" element={<AddMovie/>}></Route>
     {/* <Route path="/editpage" element={<EditPage/>}></Route> */}
+
     </>
 
     }

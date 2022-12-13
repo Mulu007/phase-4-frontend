@@ -21,7 +21,7 @@ const Main = () => {
     );
     }
     // console.log(movie)
-
+    
     function handleDelete(id) {
       fetch(`http://localhost:3000/movies/${id}`, {
         method: "DELETE",
@@ -31,16 +31,16 @@ const Main = () => {
         getMovies();
       })
     }
-
+    
     const handleMovieChange = (id, correctIndex) => {
-      fetch(`http://localhost:4000/movies/${id}`, {
+      fetch(`http://localhost:3000/movies/${id}`, {
         method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify({ correctIndex }),
+        headers: {
+          "Content-type": "application/json",
+        },
       })
-        .then((r) => r.json())
+        .then((res) => res.json())
         .then((updatedMovie) => {
           const updatedMovies = movies.map((movie) => {
             if (movie.id === updatedMovie.id) return updatedMovie;
@@ -74,10 +74,18 @@ const Main = () => {
                 <button className='border bg-gray-300 text-black border-gray-300 py-2 px-5'>Play</button>
               </Link>
                 {/* <button className='border text-white border-gray-300 py-2 px-5 ml-4'>Watch Later</button> */}
+
               {/* <Link to ="/editpage"> */}
                 <button className='border text-white border-gray-300 py-2 px-5 ml-4'>Edit Movie</button>
               {/* </Link> */}
+
+                {/* <button className='border text-white border-gray-300 py-2 px-5 ml-4' onClick={handleMovieChange}>Edit Movie</button> */}
+
                 <Link to = "/addmovie">
+
+                {/* <Link to = "/updatemovie">
+                <button className='border text-white border-gray-300 py-2 px-5 ml-4' onClick={handleMovieChange}>Update Movie</button>
+                </Link> */}
                 <button className='border text-white border-gray-300 py-2 px-5 ml-4'>Add Movie</button>
                 </Link>
                 <button className='border text-white border-gray-300 py-2 px-5 ml-4' onClick={() => handleDelete(movie?.id)}>Delete Movie</button>
@@ -92,4 +100,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default Main;
