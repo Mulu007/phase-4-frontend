@@ -18,7 +18,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/me").then((res) => {
+    fetch("https://moviesapi-gpzn.onrender.com/me").then((res) => {
       if (res.ok) {
         res.json().then((user) => {
           setCurrentUser(user);
@@ -30,7 +30,7 @@ function App() {
 
   const [allMovies, setAllMovies] = useState([])
   useEffect(() => {
-    fetch(" http://localhost:3000/movies")
+    fetch(" https://moviesapi-gpzn.onrender.com/movies")
       .then((resp) => resp.json())
       .then((show) => setAllMovies(show));
   }, []);
@@ -65,32 +65,6 @@ function App() {
   </div>
 );
 
-
 }
 
-
 export default App;
-
-
-
-
-// return (
-//   <div>
-//     <Navbar isAuthenticated={isAuthenticated}/>
-//     <Routes>
-    
-//       { isAuthenticated?
-//       <>
-//       <Route path="/" element={<Home/>}></Route>
-//       <Route path="/logout" element={<Logout setCurrentUser={setCurrentUser} currentUser={currentUser}/>}></Route>
-//       </> :
-//       <>
-//       <Route path="/signup" element={<Signup setCurrentUser = {setCurrentUser}/>}></Route>
-//       <Route path="/login" element={<Login setCurrentUser={setCurrentUser}/>}></Route>
-//       </>
-//     }
-//     {/* <Route path="*" element={<NotFound/>}></Route> */}
-//     </Routes>
-//     <Footer/>
-//   </div>
-// )

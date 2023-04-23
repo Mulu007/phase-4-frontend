@@ -15,7 +15,7 @@ const AddMovie = ({ allMovies, setAllMovies }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch("http://localhost:3000/movies", {
+    fetch("https://moviesapi-gpzn.onrender.com/movies", {
         method: "POST",
         headers: {
           Accept: "application/json",

@@ -4,7 +4,7 @@ import { Link} from 'react-router-dom'
 const Logout = ({setCurrentUser, currentUser}) => {
   //let navigate = useNavigate()
   const handleLogout = () => {
-    fetch('http://localhost:3000/logout', {method: "DELETE"})
+    fetch('https://moviesapi-gpzn.onrender.com/logout', {method: "DELETE"})
     .then(res => {
           if (res.ok) {
             setCurrentUser(null)

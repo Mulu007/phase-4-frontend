@@ -14,7 +14,7 @@ const Main = () => {
       console.log(movies)
     
     function getMovies() {
-    fetch("http://localhost:3000/movies")
+    fetch("https://moviesapi-gpzn.onrender.com/movies")
     .then((response) => response.json())
     .then((data) =>
         setMovies(data)
@@ -23,7 +23,7 @@ const Main = () => {
     // console.log(movie)
     
     function handleDelete(id) {
-      fetch(`http://localhost:3000/movies/${id}`, {
+      fetch(`https://moviesapi-gpzn.onrender.com/movies/${id}`, {
         method: "DELETE",
       })
       .then((response) => response.json())
@@ -33,7 +33,7 @@ const Main = () => {
     }
     
     const handleMovieChange = (id, correctIndex) => {
-      fetch(`http://localhost:3000/movies/${id}`, {
+      fetch(`https://moviesapi-gpzn.onrender.com/movies/${id}`, {
         method: "PATCH",
         body: JSON.stringify({ correctIndex }),
         headers: {

@@ -12,7 +12,7 @@ const Favorites = () => {
       console.log(images)
     
     function getImages() {
-    fetch("http://localhost:3000/movies")
+    fetch("https://moviesapi-gpzn.onrender.com/movies")
     .then((response) => response.json())
     .then((data) =>
         setImages(data)

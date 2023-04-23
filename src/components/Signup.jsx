@@ -25,7 +25,7 @@ const Signup = ({setCurrentUser}) => {
 
         const userCreds = {...formData};
 
-        fetch("http://localhost:3000/users", {
+        fetch("https://moviesapi-gpzn.onrender.com/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -11,7 +11,7 @@ const IndividualMovie = () => {
       console.log(movies)
     
     function getMovies() {
-    fetch("http://localhost:3000/movies")
+    fetch("https://moviesapi-gpzn.onrender.com/movies")
     .then((response) => response.json())
     .then((data) =>
         setMovies(data)
